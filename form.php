@@ -325,10 +325,73 @@ $("#droplist").on("click",'.deletesite', function() {
 // SSH to radio and get details from 'mca-status' command
 	$("#deviceListTable").on("click",'.shscan', function() {
 		//console.log($(this));
-		shscan($(this));
+		//shscan($(this));
 		
-	});
+	var $obj = $(this);
+	$obj.addClass("loading");
 	
+	var ip,us,pw,sh,br,ag = '';
+	
+	//Gets the value from this row and assigns them to the input fields above
+	var $row = $(this).closest("tr"),
+		$tip = $row.find("td:nth-child(1)"),
+		$tus = $row.find("td:nth-child(2)"),
+		$tpw = $row.find("td:nth-child(3)"),
+		$tsh = $row.find("td:nth-child(4)"),
+		$tbr = $row.find("td:nth-child(5)"),
+		$tag = $row.find("td:nth-child(6)");
+		//console.log($tip);	
+		
+		$.each($tip, function() {
+			$(this).find("input").each(function() {
+				ip = this.value;
+				//console.log('ip: '+ip);
+			});
+		}); 
+		$.each($tus, function() {
+			$(this).find("input").each(function() {
+				us = this.value;
+				//console.log('ip: '+us);
+			});
+		});
+		$.each($tpw, function() {
+			$(this).find("input").each(function() {
+				pw = this.value;
+				//console.log('pw: '+pw);
+			});
+		});
+		$.each($tsh, function() {
+			$(this).find("input").each(function() {
+				sh = this.value;
+				//console.log('sh: '+sh);
+			});
+		});
+		$.each($tbr, function() {
+			$(this).find("input").each(function() {
+				br = this.value;
+				//console.log('br: '+br);
+			});
+		});
+		$.each($tag, function() {
+			$(this).find("input").each(function() {			
+				ag = this.value;
+				//console.log('ag: '+ag);
+			});	
+		});
+	
+		//console.log(sname);
+		var ajaxurl = 'ajax.php',
+		data =  {'action': 'shscan', 'dbname': sname, 'ip': ip, 'usr': us, 'pw': pw, 'sh': sh, 'br': br, 'ag': ag};
+		$.post(ajaxurl, data, function (response) {
+			// Response div goes here.
+			//console.log(response);
+			//$obj.val("scan");
+			alert(response);
+			$obj.removeClass("loading");
+		});
+
+	});
+
 </script>
 
 </body>

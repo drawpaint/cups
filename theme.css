@@ -391,6 +391,17 @@ table.customTable th {
 	background-size: 100%;
 	background-color: transparent;
 }
+
+.actionbuts {
+  opacity: 0.6;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.actionbuts:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
 .delip{
 	background-image: url("images/delete_ico.png");
 }
@@ -433,21 +444,9 @@ table.customTable th {
 .loading, .loading:hover {    
     background-image: url("images/loading.gif");
 	position: absolute;
-	width: 40px;
-	margin-left: 5px;
-    background-size: 12px 12px;
-    background-position: center;
-    background-repeat: no-repeat;
-	border-radius:3px;
-	border:1px solid #124d77;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:9px;
-	padding:3px 10px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #154682;	
+	width: 15px;
+	height: 15px;
+	border: none;
 }
 
 #stats{

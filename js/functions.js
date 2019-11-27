@@ -97,63 +97,6 @@ function getsitesForm(){
 	updatenav();
 }
 
-//Calls php function to ssh into a radio and get details
-function shscan($obj){
-
-	$obj.val("");
-	$obj.addClass("loading");
-	
-	var ip,us,pw,sh = '';
-	
-	var $row = $obj.closest("tr"),
-		$tip = $row.find("td:nth-child(1)"),
-		$tus = $row.find("td:nth-child(2)"),
-		$tpw = $row.find("td:nth-child(3)"),
-		$tsh = $row.find("td:nth-child(4)");
-				
-		console.log('bearing ='+ bearing);
-		console.log('angle ='+ angle);
-
-	$.each($tip, function() {
-		ip = $(this).text();
-		console.log('ip: '+ip);
-	}); 
-	$.each($tus, function() {
-		us = $(this).text();
-		console.log('ip: '+us);
-	});
-	$.each($tpw, function() {
-		pw = $(this).children('input[name="pwinput"]')[0].value;
-		console.log('pw: '+ pw);
-	});
-	$.each($tsh, function() {
-		sh = $(this).text();
-		console.log('ip: '+sh);
-	});
-	
-	
-	/*
-	$.each($tbr, function() {
-		br = $(this).text();
-		//console.log('ip: '+sh);
-	});
-	$.each($tag, function() {
-		ag = $(this).text();
-		//console.log('ip: '+sh);
-	});
-	*/
-	//console.log(sname);
-	var ajaxurl = 'ajax.php',
-	data =  {'action': 'shscan', 'dbname': sname, 'ip': ip, 'usr': us, 'pw': pw, 'sh': sh, 'br': bearing, 'ag': angle};
-	$.post(ajaxurl, data, function (response) {
-		// Response div goes here.
-		console.log(response);
-		$obj.removeClass("loading");
-		$obj.val("scan");
-		alert(response);
-	});		
-}
-
 function scanlastaddedrow($ip,$pw){
 	var $latestrow = $("tr:contains('"+$ip+"')"),
 		$lasttd = $latestrow.find("td:nth-child(5)");

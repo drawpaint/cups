@@ -247,6 +247,7 @@ function paintspectrum(dbname){
 	
 	//initialize the spectrum field and devicelist div
 	$("#divstat1").empty();
+	$(".frequencybar").empty();
 	createspectrum();
 	arrRadio = [];
 	colornum = 0;
@@ -254,7 +255,7 @@ function paintspectrum(dbname){
 	var ajaxurl = 'ajax.php',
 	data =  {'action': 'getradiodetail', 'dbname': dbname};
 	$.post(ajaxurl, data, function (response) {
-		console.log(response);
+		//console.log(response);
 		if (response == "blank"){
 			$("#divstat1").html('<h4>No record found.</h4>');
 			$("#radionum").text(0);

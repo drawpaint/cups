@@ -170,6 +170,7 @@ $("#droplist").on("click",'.siteclass', function() {
 	updatenav();
 	paintspectrum(n);
 	mapObject.drawDiagram();
+	//location.reload();
 });	
 
 // SSH to radio and get ALL details from 'mca-status' command

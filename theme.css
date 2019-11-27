@@ -375,6 +375,31 @@ table.customTable th {
   background-color: #D0D7F8;
 }
 
+.radioInput{
+	font-size: 10px;
+	border: 0;
+    background: transparent;
+}
+
+.actionbuts{
+	border: none;
+	width: 15px;
+	color: #000000;
+	cursor: pointer;
+	font-weight: bold;
+	height: 15px;
+	background-size: 100%;
+	background-color: transparent;
+}
+.delip{
+	background-image: url("images/delete_ico.png");
+}
+.upip{
+	background-image: url("images/edit_ico.png");
+}
+.shscan{
+	background-image: url("images/scan_ico.png");
+}
 .button{
 	box-shadow:inset 0px 1px 0px 0px #54a3f7;
 	background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);

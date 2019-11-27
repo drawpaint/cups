@@ -14,6 +14,7 @@
 
 					<div id="wrapper">
 					
+						
 						<div id="col1">
 						  <label class="description col1"> IP Address </label>
 						  <input class="inputfield col1" type="text" name="ipadd" value="" placeholder="e.g. 10.10.1.2">
@@ -41,6 +42,12 @@
 						  <input class="inputfield" type="number" name="rangle" value="" placeholder="e.g. 120">
 						  <span class="error"> <?php echo $agErr;?></span>
 						</div>
+						
+						<table class="">
+							<tr>
+								<td>
+							</tr>
+						</table>
 						
 					</div>
 						<br><br>
@@ -237,10 +244,12 @@ $("#droplist").on("click",'.deletesite', function() {
 	$("#deviceListTable").on("click",'.delip', function() {
 		var ipDelete = '';
 		var $row = $(this).closest("tr"),
-			$tds = $row.find("td:nth-child(1)");
-		$.each($tds, function() {
-			ipDelete = $(this).text();
-			//console.log('ip: '+ipDelete);
+			$tip =  $row.find("td:nth-child(1)");
+		$.each($tip, function() {
+			$(this).find("input").each(function() {
+				ipDelete = this.value;
+				console.log('ip: '+ipDelete);
+			});
 		}); 
 			//console.log('db: '+sname);
 		var ajaxurl = 'ajax.php',
@@ -261,23 +270,27 @@ $("#droplist").on("click",'.deletesite', function() {
 		
 		//Gets the value from this row and assigns them to the input fields above
 		var $row = $(this).closest("tr"),
-			$tds = $row.find("td:nth-child(1)"),
+			$tip = $row.find("td:nth-child(1)"),
 			$tus = $row.find("td:nth-child(2)"),
 			$tpw = $row.find("td:nth-child(3)"),
 			$tsh = $row.find("td:nth-child(4)"),
 			$tbr = $row.find("td:nth-child(5)"),
 			$tag = $row.find("td:nth-child(6)");
 			
-		$.each($tds, function() {
-			ipMod = $(this).text();
-			document.querySelector("input[name=ipadd]").value = ipMod;
-			oldip = ipMod;
-			//console.log('ip: '+ipMod);
+		$.each($tip, function() {
+			$(this).find("input").each(function() {
+				var ipMod = this.value;
+				document.querySelector("input[name=ipadd]").value = ipMod;
+				oldip = ipMod;
+				//console.log('ip: '+ipMod);
+			});
 		}); 
 		$.each($tus, function() {
-			usMod = $(this).text();
-			document.querySelector("input[name=usrname]").value = usMod;
-			//console.log('ip: '+usMod);
+			$(this).find("input").each(function() {
+				usMod = this.value;
+				document.querySelector("input[name=usrname]").value = usMod;
+				//console.log('ip: '+usMod);
+			});
 		});
 		$.each($tpw, function() {
 			$(this).find("input").each(function() {
@@ -287,19 +300,25 @@ $("#droplist").on("click",'.deletesite', function() {
 			});
 		});
 		$.each($tsh, function() {
-			shMod = $(this).text();
-			document.querySelector("input[name=sshport]").value = shMod;			
-			//console.log('sh: '+shMod);
+			$(this).find("input").each(function() {
+				shMod = this.value;
+				document.querySelector("input[name=sshport]").value = shMod;			
+				//console.log('sh: '+shMod);
+			});
 		});
 		$.each($tbr, function() {
-			brMod = $(this).text();
-			document.querySelector('input[name=rbearing]').value = brMod;
-			//console.log('br: '+brMod);
+			$(this).find("input").each(function() {
+				brMod = this.value;
+				document.querySelector('input[name=rbearing]').value = brMod;
+				//console.log('br: '+brMod);
+			});
 		});
 		$.each($tag, function() {
-			agMod = $(this).text();
-			document.querySelector('input[name=rangle]').value = agMod;			
-			//console.log('ag: '+agMod);
+			$(this).find("input").each(function() {			
+				agMod = this.value;
+				document.querySelector('input[name=rangle]').value = agMod;			
+				//console.log('ag: '+agMod);
+			});	
 		});		
 	});	
 

@@ -1,6 +1,6 @@
 <?php
 	//	DB details
-	$servername = "172.16.2.54";
+	$servername = "172.16.2.5";
 	$username = "gplink";
 	$password = "GPL1nkCl!ent";
 
@@ -677,17 +677,17 @@
 				echo "</tr>";
 				while($row = mysqli_fetch_array($result)){
 					echo "<tr>";
-						echo "<td>" . long2ip(sprintf("%d", $row['ip'])). "</td>";
-						echo "<td>" . $row['usr']. "</td>";
-						echo "<td><input type=\"password\" name=\"pwinput\" value=\"". $row['pw'] ."\" id=\"pwinput\" disabled></td>";
-						echo "<td>" . $row['sh']. "</td>";
+						echo "<td><input type=\"text\" name=\"ipinput\" size=\"15\" value=\"" . long2ip(sprintf("%d", $row['ip'])). "\" class=\"radioInput\" disabled></td>";
+						echo "<td><input type=\"text\" name=\"usinput\" size=\"20\" value=\"" . $row['usr']. "\" class=\"radioInput\" disabled></td>";
+						echo "<td><input type=\"password\" name=\"pwinput\" size=\"20\" value=\"". $row['pw'] ."\" class=\"radioInput\" disabled></td>";
+						echo "<td><input type=\"text\" name=\"shinput\" size=\"5\" value=\"". $row['sh']. "\" class=\"radioInput\" disabled></td>";
 						$ip = $row['ip'];
 						$sql2 = "SELECT bearing, angle FROM radiodetails WHERE ip = '$ip' ";
 						if($result2 = mysqli_query($conn, $sql2)){
 							if(mysqli_num_rows($result2) > 0){
 								while($row2 = mysqli_fetch_array($result2)){
-									echo "<td>" . $row2['bearing']. "</td>";
-									echo "<td>" . $row2['angle']. "</td>";
+									echo "<td><input type=\"text\" name=\"brinput\" size=\"5\" value=\"" . $row2['bearing']."\" class=\"radioInput\" disabled></td>";
+									echo "<td><input type=\"text\" name=\"aginput\" size=\"5\" value=\""  . $row2['angle']. "\" class=\"radioInput\" disabled></td>";
 								}
 								mysqli_free_result($result2);
 							}else{
@@ -697,9 +697,9 @@
 							echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
 						}
 						echo "<td> 	
-									<input type=\"submit\" class=\"button delip\" name=\"delete\" value=\"delete\" /> 
-									<input type=\"submit\" class=\"button upip\" name=\"update\" value=\"update\" /> 
-									<input type=\"submit\" class=\"button shscan\" name=\"scan\" value=\"scan\" />
+									<input type=\"submit\" class=\"actionbuts delip\" name=\"delete\" title=\"Delete\" value=\"\" /> 
+									<input type=\"submit\" class=\"actionbuts upip\" name=\"update\" title=\"Update\" value=\"\"/> 
+									<input type=\"submit\" class=\"actionbuts shscan\" name=\"scan\" title=\"Scan\" value=\"\"/>
 							  </td>";
 					echo "</tr>";
 				}

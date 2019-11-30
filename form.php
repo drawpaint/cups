@@ -248,7 +248,7 @@ $("#droplist").on("click",'.deletesite', function() {
 		$.each($tip, function() {
 			$(this).find("input").each(function() {
 				ipDelete = this.value;
-				console.log('ip: '+ipDelete);
+				//console.log('ip: '+ipDelete);
 			});
 		}); 
 			//console.log('db: '+sname);

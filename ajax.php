@@ -361,7 +361,11 @@
 				$chain0Signal = $cells['chain0Signal'];
 				$chain1Signal = $cells['chain1Signal'];
 				$noise = $cells['noise'];
-				$cinr = $cells['cinr'];
+				if (array_key_exists("cinr",$cells)) {
+					$cinr = $cells['cinr'];
+				}else{
+					$cinr = 0;
+				}
 			}
 			$sql = "REPLACE INTO radiodetails (ip, 
 							essid, 

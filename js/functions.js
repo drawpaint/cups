@@ -111,13 +111,13 @@ function scanlastaddedrow($ip,$pw){
 }
 
 function fillRadioDetails($ip,$us,$pw,$sh){
-	console.log("fill: "+sname+":"+$ip+":"+$us+":"+$pw+":"+$sh);
+	//console.log("fill: "+sname+":"+$ip+":"+$us+":"+$pw+":"+$sh);
 	var ajaxurl = 'ajax.php',
 	data =  {'action': 'shscan', 'dbname': sname, 'ip': $ip, 'usr': $us, 'pw': $pw, 'sh': $sh, 'br': bearing, 'ag': angle};
 	$.post(ajaxurl, data, function (response) {
 		//console.log(response);
 		getsitesForm();
-		alert(response);
+		console.log(response);
 	});		
 }
 
@@ -341,7 +341,7 @@ function deletesite(){
 	
 	$("#deldialog").on("click",'#delsubmit', function(){
 		var name = $("#delselect").val();
-		console.log(name);
+		//console.log(name);
 		var ajaxurl = 'ajax.php',
 		data =  {'action': 'deletedb', 'dbname': name};
 		$.post(ajaxurl, data, function (response) {

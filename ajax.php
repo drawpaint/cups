@@ -1,8 +1,8 @@
 <?php
 	//	DB details
-	$servername = "";
-	$username = "";
-	$password = "";
+	$servername = "172.16.2.5";
+	$username = "gplink";
+	$password = "GPL1nkCl!ent";
 
 	
     if (isset($_POST['action'])) {

@@ -62,7 +62,7 @@
 				<div id="deviceList" >
 					
 					<h3> Device List </h3>
-					<input class="insertbutton" type="submit" name="submit" id="scanbut" value="Scan All"> 
+					<!--input class="insertbutton" type="submit" name="submit" id="scanbut" value="Scan All"--> 
 					
 					<div id="deviceListTable" >
 					</div>
@@ -170,7 +170,7 @@ $("#droplist").on("click",'.deletesite', function() {
 		//Gets the IP of each row
 		for(var i = 1; i < t.rows.length; i++){
 			var ip = t.rows[i].cells[0].innerHTML;
-			//console.log(ip);
+			console.log(ip);
 			scanlastaddedrow(ip);
 		}
 

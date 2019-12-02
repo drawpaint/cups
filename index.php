@@ -94,6 +94,7 @@ $(document).ready(function (){
 	// OPTIONS HERE
 	});
 	mapObject.drawDiagram();	
+	//alert("Main");
 });
 
 function getsitesIndex(){

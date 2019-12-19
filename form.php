@@ -1,5 +1,12 @@
 <?php
+
+ session_start();
+ if ( isset( $_SESSION['user_name'] ) ) {
+    // Grab user data from the database using the user_id
+    // Let them access the "logged in only" pages
+
  include 'head.php';
+
 ?>
   
 	<div class="container-fluid">
@@ -397,3 +404,9 @@ $("#droplist").on("click",'.deletesite', function() {
 </body>
 
 </html>
+<?php
+} else {
+    // Redirect them to the login page
+    header("Location: http://172.16.2.5/index.php");
+}
+?>

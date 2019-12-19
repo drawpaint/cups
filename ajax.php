@@ -1,12 +1,15 @@
 <?php
 	//	DB details
-	$servername = "";
-	$username = "";
-	$password = "";
+	$servername = "172.16.2.5";
+	$username = "gplink";
+	$password = "GPL1nkCl!ent";
 
 	
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
+            case 'sessiondestroy':
+                sessiondestroy();
+                break;			
             case 'createspectrum':
                 createspectrum();
                 break;
@@ -52,6 +55,11 @@
 		}
     }
 
+	function sessiondestroy(){
+		session_start();
+		session_destroy();
+		echo $_SESSION["user_name"];
+	}
 	
 	function pingIP($i){
 		// to send ping tests if the IP address is online

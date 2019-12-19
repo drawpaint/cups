@@ -21,10 +21,14 @@ html, body {
 }
 
 .sidebar-logo {
-  /*padding: 5px 5px 5px 5px;*/
-  height: 25px;
-  font-size: 10px;
-  background-color: #2574A9;
+	/*padding: 5px 5px 5px 5px;*/
+	height: 25px;
+	font-size: 10px;
+	background-image: url("images/cups_logo.png");
+	background-size: 50%;
+	background-position: center;
+	background-repeat: no-repeat;	  
+	background-color: #2574A9;
 }
 
 .sidebar-navigation {
@@ -87,11 +91,26 @@ html, body {
   background-color: transparent;
 }
 
+#titleVersion{
+	font-size: 10px;
+	color: #ffffff;
+	padding: 8px 15px;
+	width: 150px;
+	float: left;
+}
+
 /* The dropdown container */
 .dropdown {
   float: right;
   overflow: hidden;
   margin-right: 100px;
+}
+.logout {
+    position: absolute;
+    bottom: 0;
+}
+.logout img{
+    margin-left: 5px;
 }
 
 /* Dropdown button */

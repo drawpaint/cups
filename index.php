@@ -1,19 +1,15 @@
 <?php
 	session_start();
 	
-	//$_SESSION["user_name"] = "";
-	//$_SESSION["pass_word"] = "";
-	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {	
 		if ($_POST["user_name"] == "gplink" ){
 			$_SESSION["user_name"] = $_POST["user_name"];
-			header("Location: http://172.16.2.5/dashboard.php");
+			header("Location: dashboard.php");
 			exit();			
 		} else {
-			header("Location: http://172.16.2.5/index.php");
+			header("Location: index.php");
 		}
 	}
-	//&& $_POST["pass_word"] = "GPLinkAdm!n"
 ?>
 
 <html>
